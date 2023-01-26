@@ -1,11 +1,13 @@
 const express = require('express');
 const app = express();
+const port = 3000
 
-app.get('/fibonacci/:n', (req, res) => {
-    const n = req.params.n;
+app.get('/fibonacci', (req, res) => {
+   
+    let nilai = req.query.nilai;
     let fibonacci = [];
     let a = 0, b = 1;
-    while (fibonacci.length < n) {
+    while (fibonacci.length < nilai) {
         let c = a + b;
         if (c % 2 !== 0) {
             fibonacci.push(c);
@@ -13,9 +15,9 @@ app.get('/fibonacci/:n', (req, res) => {
         a = b;
         b = c;
     }
-    res.send(fibonacci.reverse().join(" "));
+    res.send({data:fibonacci.reverse().join(" ")});
 });
 
-app.listen(5000, () => {
-    console.log('Fibonacci API Running 5000!');
-});
+app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`)
+})
