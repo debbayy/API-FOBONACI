@@ -4,6 +4,7 @@
   "description": "",
   "main": "fibonaci.js",
   "scripts": {
+    "start": "node fibonaci.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
